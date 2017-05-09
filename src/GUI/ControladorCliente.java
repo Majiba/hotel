@@ -7,41 +7,91 @@ package GUI;
 
 import java.sql.*;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import modelo.ConectarBaseDatos;
 import modelo.Habitacion;
 
 /**
  *
  * @author Manuel Jiménez Bascón
  */
+
+
 public class ControladorCliente {
-    public static ArrayList<Habitacion> listarHabitacionesDisponibles(){
+    private JFrameLoginCliente vistaLogin;
+    private modelo.ConectarBaseDatos baseDatos;
+    private JFrameCliente_reservar vistaReservar;
+    private JFrameCliente vistaCliente;
+    private JFrameMenu vistaMenu;
+    
+    public ControladorCliente(JFrameCliente_reservar vistaReservar){
+        this.vistaReservar = vistaReservar;
+    }
+    
+    public ControladorCliente(JFrameMenu vistaMenu){
+        this.vistaMenu = vistaMenu;
+    }
+    
+    public ControladorCliente(JFrameCliente vistaCliente){
+        this.vistaCliente = vistaCliente;
+    }
+    
+    public ControladorCliente(JFrameLoginCliente vistaLogin){
+        this.vistaLogin = vistaLogin;
+    }
+    public void listarHabitacionesDisponibles() throws ClassNotFoundException, SQLException{
         
-        ArrayList<Habitacion> hab = new ArrayList<>();
+        DefaultTableModel dfm = new DefaultTableModel();
+        dfm.addColumn("Número");
+        dfm.addColumn("Precio");
+        dfm.addColumn("Descripción");
         
-        
-        try{
-        try{
-        Class.forName("com.mysql.jdbc.Driver");
-        }catch(ClassNotFoundException c){
-            System.out.println("No se encuentra el conector de la Base de Datos");
-        }
-        
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "");
-        
-        Statement stmt = conn.createStatement();
-        
-        String consulta = "SELECT * FROM HABITACION;";
-        
-        ResultSet rs = stmt.executeQuery(consulta);
+        ConectarBaseDatos bd= new ConectarBaseDatos();
+        ResultSet rs = bd.consultaSelect("SELECT * FROM HABITACIONES WHERE DISPONIBLE=1;");
         while(rs.next()){
-            hab.add(new Habitacion(Integer.parseInt(rs.getString(1)), Double.parseDouble(rs.getString(2)), rs.getString(3), rs.getString(4), rs.getString(5)));
+            String[] fila = {rs.getString("numero"), rs.getString("precio"), rs.getString("descripcion")};
+            dfm.addRow(fila);
         }
-        
-        return hab;
-        }catch(SQLException e){
-            System.out.println("Se ha producido un error en la conexión con la base de datos");
+        vistaReservar.getjTableDisponibles().setModel(dfm);
+    }
+    
+    public void insertarClienteNuevo() throws ClassNotFoundException, SQLException{
+        String nombre = vistaLogin.getjTextFieldNombreCliente().getText();
+        String dni = vistaLogin.getjTextFieldDni().getText();
+        if (nombre.equals("") || dni.equals("")){
+            vistaLogin.mostrarError("Debe rellenar ambos campos para registrarse.");
         }
+        else{
+            ConectarBaseDatos bd= new ConectarBaseDatos();
+            ResultSet rs = bd.consultaSelect("INSERT INTO CLIENTES (NOMBRE, DNI) values ('"+nombre+"','"+dni+"');");
+            vistaLogin.mostrarMensaje("Enhorabuena, se ha registrado con éxito en el sistema.");
+        }
+    }
+    
+    public boolean comprobarCliente() throws ClassNotFoundException, SQLException{
+        String nombre = vistaLogin.getjTextFieldNombreCliente().getText();
+        String dni = vistaLogin.getjTextFieldDni().getText();
         
-        return null;
+        Connection c = ConectarBaseDatos.conexionBd();
+        
+        Statement stmt = c.createStatement();
+        
+        ResultSet rs = stmt.executeQuery("SELECT NOMBRE FROM CLIENTES WHERE DNI='"+dni+"';");
+        rs.next();
+        if(rs.getString(1).equals(nombre)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public void accesoMenuClientes(){
+        vistaCliente.dispose();
+        new JFrameMenu().setVisible(true);
+        vistaMenu.setjButtonEditarMenuVisible();
+        
     }
 }

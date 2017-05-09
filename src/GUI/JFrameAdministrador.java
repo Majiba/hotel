@@ -27,21 +27,115 @@ public class JFrameAdministrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabelAddEmpleado = new javax.swing.JLabel();
+        jLabelAddHabitacion = new javax.swing.JLabel();
+        jLabelEliminarEmpleado = new javax.swing.JLabel();
+        jLabelEliminarHabitacion = new javax.swing.JLabel();
+        jButtonAddEmpleado = new javax.swing.JButton();
+        jButtonAddHabitacion = new javax.swing.JButton();
+        jButtonEliminarEmpleado = new javax.swing.JButton();
+        jButtonEliminarHabitacion = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel1.setText("Elija una opción de las siguientes:");
+
+        jLabelAddEmpleado.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelAddEmpleado.setText("Añadir Empleado");
+
+        jLabelAddHabitacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelAddHabitacion.setText("Añadir Habitación");
+
+        jLabelEliminarEmpleado.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelEliminarEmpleado.setText("Eliminar Empleado");
+
+        jLabelEliminarHabitacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelEliminarHabitacion.setText("Eliminar Habitación");
+
+        jButtonAddEmpleado.setText("-");
+        jButtonAddEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddEmpleadoActionPerformed(evt);
+            }
+        });
+
+        jButtonAddHabitacion.setText("-");
+        jButtonAddHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddHabitacionActionPerformed(evt);
+            }
+        });
+
+        jButtonEliminarEmpleado.setText("-");
+
+        jButtonEliminarHabitacion.setText("-");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelAddEmpleado)
+                    .addComponent(jLabelAddHabitacion)
+                    .addComponent(jLabelEliminarEmpleado)
+                    .addComponent(jLabelEliminarHabitacion))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonEliminarHabitacion)
+                    .addComponent(jButtonAddHabitacion)
+                    .addComponent(jButtonAddEmpleado)
+                    .addComponent(jButtonEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonAddEmpleado, jButtonAddHabitacion, jButtonEliminarEmpleado, jButtonEliminarHabitacion});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAddEmpleado)
+                    .addComponent(jButtonAddEmpleado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAddHabitacion)
+                    .addComponent(jButtonAddHabitacion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEliminarEmpleado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEliminarHabitacion)
+                    .addComponent(jButtonEliminarHabitacion))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonAddEmpleado, jButtonAddHabitacion, jButtonEliminarEmpleado, jButtonEliminarHabitacion});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAddEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddEmpleadoActionPerformed
+        this.dispose();
+        new JFrameAdministrador_addEmp().setVisible(true);
+    }//GEN-LAST:event_jButtonAddEmpleadoActionPerformed
+
+    private void jButtonAddHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddHabitacionActionPerformed
+        this.dispose();
+        new JFrameAdministrador_addHab().setVisible(true);
+    }//GEN-LAST:event_jButtonAddHabitacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +173,14 @@ public class JFrameAdministrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAddEmpleado;
+    private javax.swing.JButton jButtonAddHabitacion;
+    private javax.swing.JButton jButtonEliminarEmpleado;
+    private javax.swing.JButton jButtonEliminarHabitacion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelAddEmpleado;
+    private javax.swing.JLabel jLabelAddHabitacion;
+    private javax.swing.JLabel jLabelEliminarEmpleado;
+    private javax.swing.JLabel jLabelEliminarHabitacion;
     // End of variables declaration//GEN-END:variables
 }

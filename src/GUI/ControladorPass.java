@@ -13,17 +13,8 @@ import modelo.ConectarBaseDatos;
  * @author Manuel Jiménez Bascón
  */
 public class ControladorPass {
-    
-    private JFrameCliente vistaCliente;
-    private JFramePrincipal vistaPrincipal;
-    private JFrameAdministrador vistaAdmin;
-    private JFrameMenu vistaCocinero;
     private JFramePass vistaPass;
-    private JFrameLimpiador vistaLimpiador;
-    private JFrameRecepcionista vistaRecepcion;
-    private GUI.ControladorPrincipal controladorPrincipal;
-    private modelo.ConectarBaseDatos conectar;
-    
+
     public ControladorPass(JFramePass vistaPass){
         this.vistaPass = vistaPass;
     }
@@ -36,8 +27,6 @@ public class ControladorPass {
     public boolean comprobarPass() throws SQLException, ClassNotFoundException{
         String usuario = vistaPass.getjTextFieldUsuario().getText();
         String pass = vistaPass.getjTextFieldPass().getText();
-        
-        if(usuario==null||pass==null)vistaPass.mostrarError("Los campos usuario o contraseña no pueden ser nulos");
         
         Connection c = ConectarBaseDatos.conexionBd();
         

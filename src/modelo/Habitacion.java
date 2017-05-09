@@ -9,15 +9,23 @@ public class Habitacion {
     private int numero;
     private double precio;
     private String descripcion;
-    private String disponible;
-    private String sucia;
+    private int disponible;
+    private int sucia;
 
-    public Habitacion(int numero, double precio, String descripcion, String disponible, String sucia) {
+    public Habitacion(int numero, double precio, String descripcion, int disponible, int sucia) {
         this.numero = numero;
         this.precio = precio;
         this.descripcion = descripcion;
         this.disponible = disponible;
         this.sucia = sucia;
+    }
+
+    public Habitacion(int numero, double precio, String descripcion) {
+        this.numero = numero;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.disponible = 1;
+        this.sucia = 0;
     }
 
     public int getNumero() {
@@ -44,19 +52,19 @@ public class Habitacion {
         this.descripcion = descripcion;
     }
 
-    public String getDisponible() {
+    public int getDisponible() {
         return disponible;
     }
 
-    public void setDisponible(String disponible) {
+    public void setDisponible(int disponible) {
         this.disponible = disponible;
     }
 
-    public String getSucia() {
+    public int getSucia() {
         return sucia;
     }
 
-    public void setSucia(String sucia) {
+    public void setSucia(int sucia) {
         this.sucia = sucia;
     }
     

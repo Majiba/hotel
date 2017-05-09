@@ -44,7 +44,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 jButtonClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 113, 33));
+        getContentPane().add(jButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 130, 40));
 
         jButtonEmpleado.setText("Empleado");
         jButtonEmpleado.addActionListener(new java.awt.event.ActionListener() {
@@ -52,12 +52,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 jButtonEmpleadoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 113, 33));
+        getContentPane().add(jButtonEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 120, 40));
 
-        jLabelRol.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelRol.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabelRol.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRol.setText("SELECCIONA TU FUNCIÓN EN EL HOTEL");
-        getContentPane().add(jLabelRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 368, 34));
+        getContentPane().add(jLabelRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 270, 430, 34));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/images/hotel.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 370));

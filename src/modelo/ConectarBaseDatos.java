@@ -6,12 +6,14 @@
 package modelo;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Manuel Jiménez Bascón
  */
 public class ConectarBaseDatos {
+    
     public static Connection conexionBd() throws ClassNotFoundException{
         Class.forName("org.mariadb.jdbc.Driver");
         String url="jdbc:mysql://localhost:3306/hotel";
@@ -22,9 +24,15 @@ public class ConectarBaseDatos {
             c=DriverManager.getConnection(url, user, pass);
             return c;
         }catch(SQLException e){
-            System.out.println("No se ha establecido conexión");
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "No se ha podido establecer conexión");
         }
         return null;
     }
+     public ResultSet consultaSelect(String consulta) throws ClassNotFoundException, SQLException{
+         Connection c = conexionBd();
+         Statement st= c.createStatement();
+         ResultSet rs = st.executeQuery(consulta);
+         st.close();
+         return rs;
+     }
 }

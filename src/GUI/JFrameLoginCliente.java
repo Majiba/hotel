@@ -5,17 +5,25 @@
  */
 package GUI;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author manue
  */
 public class JFrameLoginCliente extends javax.swing.JFrame {
     
+    private ControladorCliente controladorCliente;
     /**
      * Creates new form JFramePass
      */
     public JFrameLoginCliente() {
         initComponents();
+        controladorCliente = new ControladorCliente(this);
     }
 
     /**
@@ -35,6 +43,7 @@ public class JFrameLoginCliente extends javax.swing.JFrame {
         jButtonEntrarCliente = new javax.swing.JButton();
         jButtonCancelarCliente = new javax.swing.JButton();
         jTextFieldDni = new javax.swing.JTextField();
+        jButtonNuevoCliente = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -49,11 +58,23 @@ public class JFrameLoginCliente extends javax.swing.JFrame {
         jLabelDNI.setText("DNI:");
 
         jButtonEntrarCliente.setText("Entrar");
+        jButtonEntrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEntrarClienteActionPerformed(evt);
+            }
+        });
 
         jButtonCancelarCliente.setText("Cancelar");
         jButtonCancelarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarClienteActionPerformed(evt);
+            }
+        });
+
+        jButtonNuevoCliente.setText("Registrar");
+        jButtonNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNuevoClienteActionPerformed(evt);
             }
         });
 
@@ -64,23 +85,27 @@ public class JFrameLoginCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelUsuarioCliente)
-                    .addComponent(jLabelDNI))
-                .addGap(28, 28, 28)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelUsuarioCliente)
+                            .addComponent(jLabelDNI))
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonNuevoCliente)
+                        .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextFieldNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jButtonEntrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonCancelarCliente)))
+                    .addComponent(jTextFieldNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonEntrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonCancelarCliente))
                     .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabelDNI, jLabelUsuarioCliente});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonCancelarCliente, jButtonEntrarCliente});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonCancelarCliente, jButtonEntrarCliente, jButtonNuevoCliente});
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextFieldDni, jTextFieldNombreCliente});
 
@@ -98,13 +123,14 @@ public class JFrameLoginCliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEntrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCancelarCliente))
+                    .addComponent(jButtonCancelarCliente)
+                    .addComponent(jButtonNuevoCliente))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelDNI, jLabelUsuarioCliente});
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonCancelarCliente, jButtonEntrarCliente});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonCancelarCliente, jButtonEntrarCliente, jButtonNuevoCliente});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,6 +139,30 @@ public class JFrameLoginCliente extends javax.swing.JFrame {
         this.dispose();
         new JFramePrincipal().setVisible(true);
     }//GEN-LAST:event_jButtonCancelarClienteActionPerformed
+
+    private void jButtonEntrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarClienteActionPerformed
+        try {
+            if(controladorCliente.comprobarCliente()){
+                this.dispose();
+                new JFrameCliente().setVisible(true);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            mostrarError("El usuario no está registrado en el sistema use el botón registrar si desea crear un usuario nuevo.");
+            jTextFieldNombreCliente.setText("");
+            jTextFieldDni.setText("");
+        }
+    }//GEN-LAST:event_jButtonEntrarClienteActionPerformed
+
+    private void jButtonNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoClienteActionPerformed
+        try {
+            controladorCliente.insertarClienteNuevo();
+            jTextFieldNombreCliente.setText("");
+            jTextFieldDni.setText("");
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            mostrarError("No se ha podido crear el usuario debido a un error");
+        }
+    }//GEN-LAST:event_jButtonNuevoClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,10 +204,27 @@ public class JFrameLoginCliente extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCancelarCliente;
     private javax.swing.JButton jButtonEntrarCliente;
+    private javax.swing.JButton jButtonNuevoCliente;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelDNI;
     private javax.swing.JLabel jLabelUsuarioCliente;
     private javax.swing.JTextField jTextFieldDni;
     private javax.swing.JTextField jTextFieldNombreCliente;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getjTextFieldDni() {
+        return jTextFieldDni;
+    }
+
+    public JTextField getjTextFieldNombreCliente() {
+        return jTextFieldNombreCliente;
+    }
+
+    public void mostrarError(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje, "¡Ha ocurrido un error!", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    public void mostrarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
 }

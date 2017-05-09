@@ -130,6 +130,8 @@ public class JFramePass extends javax.swing.JFrame {
             }
         } catch (SQLException | ClassNotFoundException e) {
             mostrarError("No existe el usuario, o la contraseña introducida no es correcta.");
+            jTextFieldUsuario.setText("");
+            jPasswordFieldPass.setText("");
         }
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 

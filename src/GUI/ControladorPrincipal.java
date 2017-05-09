@@ -37,27 +37,21 @@ public class ControladorPrincipal {
         vistaPrincipal.dispose();
     }
     
-    public static ArrayList<Habitacion> listarHabitaciones(){
+    public static ArrayList<Habitacion> listarHabitaciones() throws ClassNotFoundException{
         
         ArrayList<Habitacion> hab = new ArrayList<>();
         
         
         try{
-        try{
-        Class.forName("com.mysql.jdbc.Driver");
-        }catch(ClassNotFoundException c){
-            System.out.println("No se encuentra el conector de la Base de Datos");
-        }
+        Connection c = ConectarBaseDatos.conexionBd();
         
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "");
+        Statement stmt = c.createStatement();
         
-        Statement stmt = conn.createStatement();
-        
-        String consulta = "SELECT * FROM HABITACION;";
+        String consulta = "SELECT numero, precio, descripcion, disponible, sucia FROM HABITACION;";
         
         ResultSet rs = stmt.executeQuery(consulta);
         while(rs.next()){
-            hab.add(new Habitacion(Integer.parseInt(rs.getString(1)), Double.parseDouble(rs.getString(2)), rs.getString(3), rs.getString(4), rs.getString(5)));
+            hab.add(new Habitacion(Integer.parseInt(rs.getString(1)), Double.parseDouble(rs.getString(2)), rs.getString(3), Integer.parseInt(rs.getString(4)), Integer.parseInt(rs.getString(5))));
         }
         
         return hab;

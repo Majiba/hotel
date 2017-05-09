@@ -11,11 +11,14 @@ package GUI;
  */
 public class JFrameCliente extends javax.swing.JFrame {
 
+    private ControladorCliente controladorCliente;
+    
     /**
      * Creates new form JFrameCliente
      */
     public JFrameCliente() {
         initComponents();
+        controladorCliente = new ControladorCliente(this);
     }
 
     /**
@@ -110,13 +113,12 @@ public class JFrameCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonReservar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonReservar)
+                            .addComponent(jButtonGestionarRes))
                         .addGap(18, 18, 18)
                         .addComponent(jButtonMenuDia, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonGestionarRes)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonVolver)))
+                    .addComponent(jButtonVolver))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(jLabelImag, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -127,7 +129,7 @@ public class JFrameCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGestionarResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarResActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButtonGestionarResActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
@@ -136,12 +138,12 @@ public class JFrameCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     private void jButtonReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReservarActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new JFrameCliente_reservar().setVisible(true);
     }//GEN-LAST:event_jButtonReservarActionPerformed
 
     private void jButtonMenuDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuDiaActionPerformed
-        this.dispose();
-        new JFrameMenu().setVisible(true);
+        controladorCliente.accesoMenuClientes();
     }//GEN-LAST:event_jButtonMenuDiaActionPerformed
 
     /**
