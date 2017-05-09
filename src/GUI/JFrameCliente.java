@@ -27,62 +27,122 @@ public class JFrameCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableHabitaciones = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabelImag = new javax.swing.JLabel();
+        jLabelTitulo = new javax.swing.JLabel();
+        jLabelAccion = new javax.swing.JLabel();
         jButtonReservar = new javax.swing.JButton();
+        jButtonGestionarRes = new javax.swing.JButton();
+        jButtonMenuDia = new javax.swing.JButton();
+        jButtonVolver = new javax.swing.JButton();
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTableHabitaciones.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
+        jLabelImag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/images/habitacion.png"))); // NOI18N
 
+        jLabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitulo.setText("BIENVENIDO AL SISTEMA DE GESTIÓN");
+
+        jLabelAccion.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabelAccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelAccion.setText("Seleccione una acción para realizar");
+
+        jButtonReservar.setText("Reservar");
+        jButtonReservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonReservarActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(jTableHabitaciones);
+        });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel1.setText("Selecciona la habitación que deseas reservar:");
+        jButtonGestionarRes.setText("Gestionar Reserva");
+        jButtonGestionarRes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGestionarResActionPerformed(evt);
+            }
+        });
 
-        jButtonReservar.setText("RESERVAR");
+        jButtonMenuDia.setText("Menú del Día");
+        jButtonMenuDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMenuDiaActionPerformed(evt);
+            }
+        });
+
+        jButtonVolver.setText("Volver");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelImag, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+                    .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jLabelAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonReservar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonMenuDia, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonGestionarRes, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(jButtonVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonReservar)
-                .addGap(45, 45, 45))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonReservar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonReservar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonMenuDia, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonGestionarRes)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonVolver)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(jLabelImag, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonGestionarRes, jButtonMenuDia, jButtonReservar, jButtonVolver});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonGestionarResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarResActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonGestionarResActionPerformed
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+        this.dispose();
+        new JFramePrincipal().setVisible(true);
+    }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jButtonReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReservarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonReservarActionPerformed
+
+    private void jButtonMenuDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuDiaActionPerformed
+        this.dispose();
+        new JFrameMenu().setVisible(true);
+    }//GEN-LAST:event_jButtonMenuDiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,9 +180,13 @@ public class JFrameCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonGestionarRes;
+    private javax.swing.JButton jButtonMenuDia;
     private javax.swing.JButton jButtonReservar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableHabitaciones;
+    private javax.swing.JButton jButtonVolver;
+    private javax.swing.JLabel jLabelAccion;
+    private javax.swing.JLabel jLabelImag;
+    private javax.swing.JLabel jLabelTitulo;
     // End of variables declaration//GEN-END:variables
 }

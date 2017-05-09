@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,11 +12,13 @@ import javax.swing.JOptionPane;
  */
 public class JFramePrincipal extends javax.swing.JFrame {
 
+    private ControladorPrincipal controladorPrincipal;
     /**
      * Creates new form JFramePrincipal
      */
     public JFramePrincipal() {
         initComponents();
+        controladorPrincipal = new ControladorPrincipal(this);
     }
 
     /**
@@ -29,42 +30,48 @@ public class JFramePrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jButtonCliente = new javax.swing.JButton();
+        jButtonEmpleado = new javax.swing.JButton();
+        jLabelRol = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Cliente");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 312, 113, 33));
+        jButtonCliente.setText("Cliente");
+        jButtonCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 113, 33));
 
-        jButton2.setText("Administrador");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 312, -1, 33));
+        jButtonEmpleado.setText("Empleado");
+        jButtonEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmpleadoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 113, 33));
 
-        jButton3.setText("Recepcionista");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 312, 113, 33));
+        jLabelRol.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelRol.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRol.setText("SELECCIONA TU FUNCIÓN EN EL HOTEL");
+        getContentPane().add(jLabelRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 368, 34));
 
-        jButton4.setText("Limpiador");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 312, 113, 33));
-
-        jButton5.setText("Cocinero");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 312, 113, 33));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("SELECCIONA TU FUNCIÓN EN EL HOTEL");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 368, 34));
-
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/hotel.jpg"))); // NOI18N
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/images/hotel.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteActionPerformed
+        controladorPrincipal.solicitarUsuario();
+    }//GEN-LAST:event_jButtonClienteActionPerformed
+
+    private void jButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpleadoActionPerformed
+        controladorPrincipal.solicitarPass();
+    }//GEN-LAST:event_jButtonEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,12 +109,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jButtonCliente;
+    private javax.swing.JButton jButtonEmpleado;
     private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JLabel jLabelRol;
     // End of variables declaration//GEN-END:variables
 }

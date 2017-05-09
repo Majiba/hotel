@@ -1,53 +1,63 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 
 /**
  *
- * @author Manuel
+ * @author Manuel Jiménez Bascón
  */
-public class Habitacion implements Serializable{
-    private int numHabitacion;
-    private int capacidadMax;
-    private String Tipo;
+public class Habitacion {
+    
+    private int numero;
+    private double precio;
+    private String descripcion;
+    private String disponible;
+    private String sucia;
 
-    public Habitacion(int numHabitacion, int capacidaMax, String Tipo) {
-        this.numHabitacion = numHabitacion;
-        this.capacidadMax = capacidaMax;
-        this.Tipo = Tipo;
+    public Habitacion(int numero, double precio, String descripcion, String disponible, String sucia) {
+        this.numero = numero;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.disponible = disponible;
+        this.sucia = sucia;
     }
 
-    public int getNumHabitacion() {
-        return numHabitacion;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setNumHabitacion(int numHabitacion) {
-        this.numHabitacion = numHabitacion;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    public int getCapacidaMax() {
-        return capacidadMax;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setCapacidaMax(int capacidaMax) {
-        this.capacidadMax = capacidaMax;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
-    public String getTipo() {
-        return Tipo;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setTipo(String Tipo) {
-        this.Tipo = Tipo;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(String disponible) {
+        this.disponible = disponible;
+    }
+
+    public String getSucia() {
+        return sucia;
+    }
+
+    public void setSucia(String sucia) {
+        this.sucia = sucia;
     }
     
     

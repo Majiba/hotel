@@ -7,37 +7,14 @@ package GUI;
 
 import java.sql.*;
 import java.util.ArrayList;
-import modelo.*;
+import modelo.Habitacion;
 
 /**
  *
- * @author manue
+ * @author Manuel Jiménez Bascón
  */
-public class ControladorPrincipal {
-    
-    private JFrameCliente vistaCliente;
-    private JFramePrincipal vistaPrincipal;
-    private JFrameAdministrador vistaAdmin;
-    private JFrameMenu vistaCocinero;
-    private JFramePass vistaPass;
-    private JFrameLimpiador vistaLimpiador;
-    private JFrameRecepcionista vistaRecepcion;
-    
-    public ControladorPrincipal(JFramePrincipal vistaPrincipal){
-        this.vistaPrincipal = vistaPrincipal;
-    }
- 
-    public void solicitarPass(){
-        new JFramePass().setVisible(true);
-        vistaPrincipal.dispose();
-    }
-    
-    public void solicitarUsuario(){
-        new JFrameLoginCliente().setVisible(true);
-        vistaPrincipal.dispose();
-    }
-    
-    public static ArrayList<Habitacion> listarHabitaciones(){
+public class ControladorCliente {
+    public static ArrayList<Habitacion> listarHabitacionesDisponibles(){
         
         ArrayList<Habitacion> hab = new ArrayList<>();
         
@@ -67,6 +44,4 @@ public class ControladorPrincipal {
         
         return null;
     }
-    
-    
 }

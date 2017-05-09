@@ -27,18 +27,19 @@ public class JFrameRecepcionista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabelRecepcion = new javax.swing.JLabel();
+        jLabelRecepcionImage = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelRecepcion.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabelRecepcion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRecepcion.setText("RECEPCIÓN");
+        getContentPane().add(jLabelRecepcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+
+        jLabelRecepcionImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/images/recepcion.png"))); // NOI18N
+        getContentPane().add(jLabelRecepcionImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +80,7 @@ public class JFrameRecepcionista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelRecepcion;
+    private javax.swing.JLabel jLabelRecepcionImage;
     // End of variables declaration//GEN-END:variables
 }
